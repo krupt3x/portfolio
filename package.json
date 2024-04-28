@@ -1,0 +1,17 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "krupt3x's personal blog",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "github.com/krupt3x/portfolio"
+  },
+  "keywords": [
+    "krutp3x",
+    "personal site"
+  ],
+  "author": "krupt3x",
+  "license": "ISC"
+}
