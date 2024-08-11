@@ -9,23 +9,25 @@
 </head>
 
 <body>
-    <form action="#" method="post">
-        <fieldset>
-            <div>
-                <label for="name">*name</label>
-                <input name="name" id="name" type="text" placeholder="joe..." required maxlength="70">
+    <div class="form-container">
+        <form action="#" method="post">
+            <fieldset class="bio-input">
+                <div>
+                    <label class="name" for="name">*name</label>
+                    <input class="name-ipt" name="name" id="name" type="text" placeholder="joe..." required maxlength="70">
+                </div>
+                <div>
+                    <label class="email" for="email">*email</label>
+                    <input class="email-ipt" name="email" id="email" type="email" required>
+                </div>
+            </fieldset>
+            <div class="mes-txt">
+                <label class="msg-label" for="message">message</label>
+                <textarea class="message " id="message" name="message" minlength="10" placeholder="write your message"
+                    maxlength="400" name="message" id="message"></textarea>
             </div>
-            <div>
-                <label for="email">*email</label>
-                <input name="email" id="email" type="email" required>
-            </div>
-            <div>
-                <label for="message">message</label><br>
-                <textarea name="message" minlength="10" placeholder="write your message" maxlength="400" name="message"
-                    id="message"></textarea>
-            </div>
-            <button type="submit" value="submit">Submit</button>
-        </fieldset>
+            <button class="submit-contact-form-btn" type="submit" value="submit">Submit</button>
+    </div>
     </form>
 
 </body>
