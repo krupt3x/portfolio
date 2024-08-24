@@ -97,7 +97,6 @@ out
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
-
 # vuepress v2.x temp and cache directory
 .temp
 
@@ -118,7 +117,7 @@ out
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
-
+.vscode
 # yarn v2
 .yarn/cache
 .yarn/unplugged

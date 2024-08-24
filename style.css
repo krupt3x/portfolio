@@ -5,7 +5,7 @@
 html,
 body {
   background-color: #333;
-  color: #fff;
+  color: #008000;
   height: 100%;
 }
 
@@ -33,7 +33,7 @@ a {
   font-weight: bolder;
   text-decoration: none;
   gap: 2rem;
-  color: #eee;
+  color: #14f114;
 }
 
 #message {
@@ -89,13 +89,27 @@ form {
 .bio {
   color: #008000;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   max-width: 80%;
   margin: 0 auto;
   padding: 2rem;
-  border: 1px dotted #eee;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .bio a {
-  color: #7c93c3;
+  color: #14f114;
+}
+
+.my-projects {
+  color: #008000;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.my-projects a {
+  color: #14f114;
 }
