@@ -1,0 +1,11 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": ["krupt3x personal site","portfolio"],
+  "author": "krupt3x",
+  "license": "ISC",
+  "description": "krupt3x's personal/portfolio site"
+}
