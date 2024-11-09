@@ -2,10 +2,20 @@
   "name": "frontend",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-  },
-  "keywords": ["krupt3x personal site","portfolio"],
+  "scripts": {},
+  "keywords": [
+    "krupt3x personal site",
+    "portfolio"
+  ],
   "author": "krupt3x",
   "license": "ISC",
-  "description": "krupt3x's personal/portfolio site"
+  "description": "krupt3x's personal/portfolio site",
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "globals": "^15.12.0",
+    "prettier": "3.3.3"
+  }
 }
