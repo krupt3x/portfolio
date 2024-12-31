@@ -1,0 +1,14 @@
+/* style.css */
+
+/*  center the nav links */
+nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* sets navbars font-size,color */
+
+nav a {
+  text-decoration: none;
+}
