@@ -842,3 +842,10 @@ footer p {
   max-width: 600px;
   margin: 0 auto;
 }
+
+/* Hide eye on mobile devices */
+@media (max-width: 767px) {
+  .eye-container {
+    display: none;
+  }
+}
