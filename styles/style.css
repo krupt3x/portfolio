@@ -714,7 +714,8 @@ footer p {
 .eye-container {
   position: fixed;
   top: 1rem;
-  right: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
   width: 90px;
   height: 44px;
   display: flex;
