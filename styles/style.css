@@ -713,29 +713,35 @@ footer p {
 
 .eye-container {
   position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  height: 160px;
+  top: 0.7rem;
+  right: 4.5rem;
+  width: 78px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 0;
-  filter: blur(1.8px);
-  opacity: 0.35;
+  z-index: 120;
+  filter: none;
+  opacity: 0.95;
+  image-rendering: pixelated;
 }
 
+[data-theme="light"] .eye-container,
+[data-theme="dark"] .eye-container {
+  transform: translate(0, 0);
+}
 .eye {
   position: relative;
-  width: 220px;
-  height: 110px;
-  border-radius: 70px / 40px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(230,230,255,0.85) 48%, rgba(222,224,255,0.75));
-  border: 3px solid rgba(226, 233, 255, 0.37);
-  box-shadow: inset 0 12px 22px rgba(0,0,0,0.18), 0 0 40px rgba(145, 175, 255, 0.23);
+  width: 68px;
+  height: 34px;
+  border-radius: 24px / 14px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(228,228,255,0.86) 45%, rgba(220,220,255,0.8));
+  border: 1px solid rgba(210, 220, 255, 0.55);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.25), 0 0 12px rgba(145, 175, 255, 0.2);
+  background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.98) 0 1px, rgba(226,226,255,0.72) 1px 2px, rgba(235,235,255,0.84) 2px 3px);
   overflow: hidden;
+  image-rendering: pixelated;
 }
 
 .eye::before {
@@ -750,10 +756,10 @@ footer p {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 68px;
-  height: 68px;
-  margin-left: -34px;
-  margin-top: -34px;
+  width: 26px;
+  height: 26px;
+  margin-left: -13px;
+  margin-top: -13px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #0f48a8, #0f3690 45%, #071d4c 98%);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.35), 0 0 14px rgba(64, 150, 255, 0.45);
