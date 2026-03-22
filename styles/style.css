@@ -8,17 +8,22 @@
 }
 
 body {
-  font-family: 'Orbitron', 'Share Tech Mono', 'Courier New', Courier, monospace;
+  font-family: "Orbitron", "Share Tech Mono", "Courier New", Courier, monospace;
   line-height: 1.6;
   color: #c8eeff;
-  background: radial-gradient(circle at top, #1c1f41 0%, #090b1a 45%, #000000 100%);
+  background: radial-gradient(
+    circle at top,
+    #1c1f41 0%,
+    #090b1a 45%,
+    #000000 100%
+  );
   background-attachment: fixed;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -66,7 +71,9 @@ nav a {
   font-weight: 700;
   letter-spacing: 0.05em;
   font-size: 0.95rem;
-  text-shadow: 0 0 8px rgba(58, 223, 255, 0.6), 0 0 16px rgba(58, 223, 255, 0.25);
+  text-shadow:
+    0 0 8px rgba(58, 223, 255, 0.6),
+    0 0 16px rgba(58, 223, 255, 0.25);
   transition: all 0.25s ease;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -103,13 +110,15 @@ nav a:hover {
 .burger,
 .burger::before,
 .burger::after {
-  content: '';
+  content: "";
   display: block;
   width: 22px;
   height: 2px;
   border-radius: 2px;
   background-color: #9ffaff;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
   margin: 0 auto;
 }
 
@@ -173,8 +182,14 @@ nav a:hover {
 }
 
 @keyframes popIn {
-  0% { opacity: 0; transform: translateY(-8px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .nav-toggle.open .burger {
@@ -195,7 +210,12 @@ main {
 
 /* Hero Section */
 .hero {
-  background-image: radial-gradient(circle at 20% 20%, rgba(7, 45, 80, 0.6), rgba(3, 8, 22, 0.95)),
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(7, 45, 80, 0.6),
+      rgba(3, 8, 22, 0.95)
+    ),
     linear-gradient(120deg, rgba(19, 34, 77, 0.95), rgba(9, 12, 29, 0.95));
   color: #c0eeff;
   padding: 6rem 2rem;
@@ -205,13 +225,18 @@ main {
 }
 
 .hero:after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(86, 224, 255, 0.8), transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(86, 224, 255, 0.8),
+    transparent
+  );
 }
 
 .hero-content {
@@ -225,7 +250,9 @@ main {
   font-weight: 800;
   color: #bffbff;
   letter-spacing: 0.05em;
-  text-shadow: 0 0 14px rgba(148, 244, 255, 0.8), 0 0 28px rgba(100, 176, 255, 0.5);
+  text-shadow:
+    0 0 14px rgba(148, 244, 255, 0.8),
+    0 0 28px rgba(100, 176, 255, 0.5);
 }
 
 .hero .subtitle {
