@@ -712,24 +712,25 @@ footer p {
 }
 
 .eye-container {
-  position: absolute;
-  bottom: 16%;
-  right: 12%;
-  width: 168px;
-  height: 96px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 160px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   pointer-events: none;
-  z-index: 10;
-  filter: blur(1.3px);
-  opacity: 0.37;
+  z-index: 0;
+  filter: blur(1.8px);
+  opacity: 0.35;
 }
 
 .eye {
   position: relative;
-  width: 140px;
-  height: 80px;
+  width: 220px;
+  height: 110px;
   border-radius: 70px / 40px;
   background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(230,230,255,0.85) 48%, rgba(222,224,255,0.75));
   border: 3px solid rgba(226, 233, 255, 0.37);
@@ -749,13 +750,13 @@ footer p {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 44px;
-  height: 44px;
-  margin-left: -22px;
-  margin-top: -22px;
+  width: 68px;
+  height: 68px;
+  margin-left: -34px;
+  margin-top: -34px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #0f48a8, #0f3690 52%, #071d4c 98%);
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.35), 0 0 10px rgba(64, 150, 255, 0.45);
+  background: radial-gradient(circle at 35% 35%, #0f48a8, #0f3690 45%, #071d4c 98%);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.35), 0 0 14px rgba(64, 150, 255, 0.45);
   transition: transform 0.1s ease-out;
 }
 
@@ -763,10 +764,10 @@ footer p {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 14px;
-  height: 14px;
-  margin-left: -7px;
-  margin-top: -7px;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  margin-top: -12px;
   border-radius: 50%;
   background: radial-gradient(circle, #020912, #0f1f40);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);

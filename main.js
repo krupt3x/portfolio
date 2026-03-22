@@ -88,7 +88,6 @@ updateScrollProgress();
 const eye = document.querySelector('.eye');
 const iris = document.querySelector('.iris');
 const tears = document.querySelector('.tears');
-const hero = document.querySelector('.hero');
 
 let lastMouseMove = Date.now();
 let idleTimer = null;
@@ -142,9 +141,8 @@ function setEyeIdle(state) {
 }
 
 function updateEyePosition(event) {
-  if (!eye || !iris || !hero) return;
+  if (!eye || !iris) return;
 
-  const rect = hero.getBoundingClientRect();
   const eyeRect = eye.getBoundingClientRect();
   const centerX = eyeRect.left + eyeRect.width / 2;
   const centerY = eyeRect.top + eyeRect.height / 2;
@@ -152,7 +150,7 @@ function updateEyePosition(event) {
   const deltaX = event.clientX - centerX;
   const deltaY = event.clientY - centerY;
 
-  const maxDistance = 20;
+  const maxDistance = 30;
   const distance = Math.min(maxDistance, Math.hypot(deltaX, deltaY));
   const angle = Math.atan2(deltaY, deltaX);
 
