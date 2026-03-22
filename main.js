@@ -17,6 +17,33 @@ if (navToggle && navLinks) {
     });
 }
 
+// Theme toggle functionality
+const themeToggle = document.querySelector('.theme-toggle');
+const themeIcon = document.querySelector('.theme-icon');
+
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    if (themeIcon) {
+        themeIcon.textContent = theme === 'light' ? '☀️' : '🌙';
+    }
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+}
+
+// Initialize theme
+const savedTheme = localStorage.getItem('theme') || 'dark';
+setTheme(savedTheme);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
 function updateScrollProgress() {
     const progressEl = document.querySelector('.scroll-progress');
     if (!progressEl) return;
@@ -41,7 +68,8 @@ function updateScrollProgress() {
         sections.forEach((section) => {
             const rect = section.getBoundingClientRect();
             const top = window.pageYOffset + rect.top;
-            if (scrollPos >= top) {
+            const bottom = top + rect.height;
+            if (scrollPos >= top && scrollPos < bottom) {
                 active = section.id || active;
             }
         });

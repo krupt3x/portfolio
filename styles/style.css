@@ -1,5 +1,52 @@
 /* style.css */
 
+/* CSS Variables for Theming */
+:root {
+  /* Dark Theme (Default) */
+  --bg-primary: radial-gradient(circle at top, #1c1f41 0%, #090b1a 45%, #000000 100%);
+  --bg-overlay: linear-gradient(rgba(15, 20, 60, 0.1), rgba(15, 20, 60, 0.5));
+  --text-primary: #c8eeff;
+  --text-secondary: #b0eeff;
+  --text-accent: #d4f2ff;
+  --nav-bg: rgba(10, 16, 48, 0.95);
+  --nav-border: rgba(128, 213, 255, 0.25);
+  --nav-text: #9ffaff;
+  --nav-hover: rgba(44, 200, 255, 0.2);
+  --card-bg: rgba(8, 14, 41, 0.78);
+  --card-border: rgba(99, 226, 255, 0.5);
+  --card-shadow: rgba(20, 120, 210, 0.15);
+  --button-bg: #00b4ff;
+  --button-hover: #1beeff;
+  --scroll-bg: rgba(12, 20, 50, 0.45);
+  --scroll-border: rgba(64, 222, 255, 0.8);
+  --scroll-shadow: rgba(98, 232, 255, 0.5);
+  --scroll-dot: linear-gradient(45deg, #23e7ff, #5ce7ff);
+  --scroll-dot-shadow: rgba(60, 248, 255, 0.8);
+}
+
+[data-theme="light"] {
+  /* Light Theme */
+  --bg-primary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --bg-overlay: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+  --text-primary: #2c3e50;
+  --text-secondary: #34495e;
+  --text-accent: #7f8c8d;
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --nav-border: rgba(52, 152, 219, 0.25);
+  --nav-text: #2c3e50;
+  --nav-hover: rgba(52, 152, 219, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(52, 152, 219, 0.3);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --button-bg: #3498db;
+  --button-hover: #2980b9;
+  --scroll-bg: rgba(255, 255, 255, 0.8);
+  --scroll-border: rgba(52, 152, 219, 0.6);
+  --scroll-shadow: rgba(52, 152, 219, 0.3);
+  --scroll-dot: linear-gradient(45deg, #3498db, #5dade2);
+  --scroll-dot-shadow: rgba(52, 152, 219, 0.6);
+}
+
 /* Global Styles */
 * {
   margin: 0;
@@ -10,17 +57,13 @@
 body {
   font-family: "Orbitron", "Share Tech Mono", "Courier New", Courier, monospace;
   line-height: 1.6;
-  color: #c8eeff;
-  background: radial-gradient(
-    circle at top,
-    #1c1f41 0%,
-    #090b1a 45%,
-    #000000 100%
-  );
+  color: var(--text-primary);
+  background: var(--bg-primary);
   background-attachment: fixed;
   min-height: 100vh;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 body::before {
@@ -31,8 +74,9 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background: linear-gradient(rgba(15, 20, 60, 0.1), rgba(15, 20, 60, 0.5));
+  background: var(--bg-overlay);
   mix-blend-mode: screen;
+  transition: background 0.3s ease;
 }
 
 .starfield {
@@ -75,10 +119,10 @@ body::before {
   top: 15%;
   width: 4px;
   height: 20vh;
-  border: 2px solid rgba(64, 222, 255, 0.8);
+  border: 2px solid var(--scroll-border);
   border-radius: 999px;
-  background: rgba(12, 20, 50, 0.45);
-  box-shadow: 0 0 14px rgba(98, 232, 255, 0.5);
+  background: var(--scroll-bg);
+  box-shadow: 0 0 14px var(--scroll-shadow);
   z-index: 110;
 }
 
@@ -122,12 +166,13 @@ footer {
 
 /* Header styling */
 header {
-  background: rgba(10, 16, 48, 0.95);
+  background: var(--nav-bg);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(128, 213, 255, 0.25);
+  border-bottom: 1px solid var(--nav-border);
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 /* Navbar styling */
@@ -160,13 +205,11 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: #9ffaff;
+  color: var(--nav-text);
   font-weight: 700;
   letter-spacing: 0.05em;
   font-size: 0.95rem;
-  text-shadow:
-    0 0 8px rgba(58, 223, 255, 0.6),
-    0 0 16px rgba(58, 223, 255, 0.25);
+  text-shadow: 0 0 8px rgba(58, 223, 255, 0.6), 0 0 16px rgba(58, 223, 255, 0.25);
   transition: all 0.25s ease;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -174,9 +217,31 @@ nav {
 
 .nav-links a:hover {
   color: #f4fcff;
-  background-color: rgba(44, 200, 255, 0.2);
+  background-color: var(--nav-hover);
   box-shadow: 0 0 16px rgba(62, 215, 255, 0.5);
   transform: translateY(-1px);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--nav-border);
+  border-radius: 10px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  color: var(--nav-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+  background-color: var(--nav-hover);
+  transform: scale(1.05);
 }
 
 .nav-toggle {
@@ -348,7 +413,7 @@ main {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   opacity: 0.95;
-  color: #cbefff;
+  color: var(--text-secondary);
 }
 
 .hero .description {
@@ -356,7 +421,7 @@ main {
   opacity: 0.9;
   max-width: 620px;
   margin: 0 auto;
-  color: #e7f8ff;
+  color: var(--text-accent);
   border: 1px solid rgba(122, 216, 255, 0.35);
   padding: 1rem;
   border-radius: 6px;
@@ -370,10 +435,10 @@ main {
 }
 
 .about .container {
-  background: rgba(8, 14, 41, 0.78);
-  border: 1px solid rgba(99, 226, 255, 0.5);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 10px;
-  box-shadow: 0 0 24px rgba(20, 120, 210, 0.15);
+  box-shadow: 0 0 24px var(--card-shadow);
   padding: 2rem;
 }
 
@@ -381,12 +446,12 @@ main {
 .projects h2,
 .blog h2,
 .contact h2 {
-  color: #b0eeff;
+  color: var(--text-secondary);
   text-shadow: 0 0 8px rgba(131, 238, 255, 0.35);
 }
 
 .about p {
-  color: #d4f2ff;
+  color: var(--text-accent);
   margin-top: 0.75rem;
   line-height: 1.7;
 }
@@ -426,11 +491,11 @@ main {
   font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
-  color: #a9efff;
+  color: var(--text-secondary);
 }
 
 .project-card {
-  background: rgba(10, 18, 56, 0.92);
+  background: var(--card-bg);
   padding: 1.8rem;
   border-radius: 10px;
   border-left: 4px solid #00e4ff;
@@ -443,7 +508,7 @@ main {
 }
 
 .project-header h3 {
-  color: #9befff;
+  color: var(--text-secondary);
 }
 
 .github-link {
@@ -460,7 +525,7 @@ main {
 }
 
 .project-card p {
-  color: #c9eeff;
+  color: var(--text-accent);
 }
 
 /* Contact Section */
@@ -475,25 +540,25 @@ main {
 }
 
 .contact-subtitle {
-  color: #b4eeff;
+  color: var(--text-secondary);
   margin-bottom: 1.7rem;
 }
 
 .contact-form {
   max-width: 620px;
   margin: 0 auto;
-  background: rgba(10, 17, 49, 0.9);
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 10px;
-  border: 1px solid rgba(92, 222, 255, 0.5);
-  box-shadow: 0 0 26px rgba(12, 134, 206, 0.25);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 0 26px var(--card-shadow);
 }
 
 .contact-form input,
 .contact-form textarea {
   background-color: rgba(6, 10, 24, 0.82);
   border: 1px solid rgba(84, 181, 240, 0.4);
-  color: #dbf7ff;
+  color: var(--text-primary);
 }
 
 .contact-form input:focus,
@@ -503,23 +568,23 @@ main {
 }
 
 .submit-btn {
-  background-color: #00b4ff;
+  background-color: var(--button-bg);
   color: #041a35;
 }
 
 .submit-btn:hover {
-  background-color: #1beeff;
+  background-color: var(--button-hover);
   box-shadow: 0 0 18px rgba(55, 228, 255, 0.45);
 }
 
 /* Footer */
 footer {
-  background: rgba(8, 12, 32, 0.98);
-  color: #b0e8ff;
+  background: var(--nav-bg);
+  color: var(--text-secondary);
   padding: 2rem;
   text-align: center;
   margin-top: 3rem;
-  border-top: 1px solid rgba(73, 195, 255, 0.3);
+  border-top: 1px solid var(--nav-border);
 }
 
 .footer-content {
