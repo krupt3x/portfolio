@@ -83,3 +83,107 @@ function updateScrollProgress() {
 window.addEventListener('scroll', updateScrollProgress);
 window.addEventListener('resize', updateScrollProgress);
 updateScrollProgress();
+
+// Eye interaction with pointer and idle tears
+const eye = document.querySelector('.eye');
+const iris = document.querySelector('.iris');
+const tears = document.querySelector('.tears');
+const hero = document.querySelector('.hero');
+
+let lastMouseMove = Date.now();
+let idleTimer = null;
+let tearInterval = null;
+let isIdle = false;
+
+function createTear() {
+  if (!tears) return;
+
+  const tear = document.createElement('span');
+  tear.className = 'tear';
+  const startX = 40 + Math.random() * 20 - 10;
+  tear.style.left = `${startX}px`;
+  tear.style.animationDuration = `${1.2 + Math.random() * 0.65}s`;
+
+  tears.appendChild(tear);
+  setTimeout(() => {
+    tear.remove();
+  }, 1400);
+}
+
+function startTears() {
+  if (tearInterval) return;
+  if (tears) tears.innerHTML = '';
+  tearInterval = setInterval(createTear, 280);
+}
+
+function stopTears() {
+  clearInterval(tearInterval);
+  tearInterval = null;
+  if (tears) tears.innerHTML = '';
+}
+
+function blink() {
+  if (!eye) return;
+  eye.classList.add('blinking');
+  setTimeout(() => {
+    eye.classList.remove('blinking');
+  }, 250);
+}
+
+function setEyeIdle(state) {
+  if (!eye) return;
+  isIdle = state;
+  if (isIdle) {
+    blink();
+    startTears();
+  } else {
+    stopTears();
+  }
+}
+
+function updateEyePosition(event) {
+  if (!eye || !iris || !hero) return;
+
+  const rect = hero.getBoundingClientRect();
+  const eyeRect = eye.getBoundingClientRect();
+  const centerX = eyeRect.left + eyeRect.width / 2;
+  const centerY = eyeRect.top + eyeRect.height / 2;
+
+  const deltaX = event.clientX - centerX;
+  const deltaY = event.clientY - centerY;
+
+  const maxDistance = 20;
+  const distance = Math.min(maxDistance, Math.hypot(deltaX, deltaY));
+  const angle = Math.atan2(deltaY, deltaX);
+
+  const moveX = Math.cos(angle) * distance;
+  const moveY = Math.sin(angle) * distance;
+
+  iris.style.transform = `translate(${moveX}px, ${moveY}px)`;
+}
+
+function handleMouseMove(event) {
+  lastMouseMove = Date.now();
+  if (isIdle) {
+    setEyeIdle(false);
+  }
+
+  updateEyePosition(event);
+
+  if (idleTimer) {
+    clearTimeout(idleTimer);
+  }
+
+  idleTimer = setTimeout(() => {
+    setEyeIdle(true);
+  }, 1500);
+}
+
+window.addEventListener('mousemove', handleMouseMove);
+
+setTimeout(() => {
+  idleTimer = setTimeout(() => {
+    setEyeIdle(true);
+  }, 1500);
+}, 500);
+
